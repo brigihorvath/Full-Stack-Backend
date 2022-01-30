@@ -7,7 +7,8 @@ const axios = require('axios');
 router.post(
   '/questions/create',
   (req, res) => {
-    console.log(req.body);
+    console.log(req.body.question);
+    res.status(200).json('no');
   }
   // fileUploader.single('tour-cover-image'),
   //   async (req, res) => {
@@ -32,7 +33,7 @@ router.post(
 );
 
 //README.
-router.get('/', (req, res) => {
-  console.log('get here');
+router.get('/questions/create', (req, res) => {
+  console.log(req);
 });
 module.exports = router;
