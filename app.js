@@ -1,11 +1,11 @@
 const passport = require('passport');
-const cors = require('cors');
+// const cors = require('cors');
 require('./db').connectDb();
 // require('./googleAuth');
 
 const app = require('express')();
 
-app.use(cors());
+// app.use(cors());
 require('./config').config(app);
 require('./config/session.config').sessionInit(app);
 
