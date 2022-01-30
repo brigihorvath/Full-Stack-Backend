@@ -9,6 +9,7 @@ const QuestionSchema = new Schema({
   answer: {
     type: [Schema.Types.ObjectId],
     ref: 'Answer',
+    default: '',
   },
   likes: {
     type: Number,
