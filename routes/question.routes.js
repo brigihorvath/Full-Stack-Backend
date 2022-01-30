@@ -9,8 +9,8 @@ router.post(
   // fileUploader.single('tour-cover-image'),
   async (req, res) => {
     try {
-      const { question } = req.body;
-      // console.log(req.body);
+      const question = req.body;
+      console.log(req.body);
 
       const newQuestion = await Question.create({
         question,
