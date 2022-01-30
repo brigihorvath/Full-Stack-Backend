@@ -2,22 +2,18 @@ const { Schema, model } = require('mongoose');
 
 const QuestionSchema = new Schema({
   question: {
-    type: String,
+    type: Object,
     required: [true, 'Please provide a tour name'],
     trim: true,
   },
   answer: {
-    type: [Schema.Types.ObjectId],
+    type: String,
     ref: 'Answer',
     default: '',
   },
   likes: {
     type: Number,
     default: 0,
-  },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
   },
 });
 

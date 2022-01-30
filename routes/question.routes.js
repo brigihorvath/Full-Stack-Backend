@@ -6,30 +6,33 @@ const axios = require('axios');
 // CRUD - Create
 router.post(
   '/questions/create',
-  (req, res) => {
-    console.log(req.body.question);
-    res.status(200).json('no');
-  }
-  // fileUploader.single('tour-cover-image'),
-  //   async (req, res) => {
-  //     try {
-  //       const question = req.body;
-  //       console.log(req.body);
-
-  //       const newQuestion = await Question.create({
-  //         question,
-  //       });
-  //       // console.log(newTour);
-  //       res.status(201).json({
-  //         status: 'success',
-  //         data: {
-  //           content: newQuestion,
-  //         },
-  //       });
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
+  //   (req, res) => {
+  //     console.log(req.body);
+  //     res.status(200).json('no');
   //   }
+  // fileUploader.single('tour-cover-image'),
+  async (req, res) => {
+    try {
+      const question = req.body.content;
+      const answer = '';
+      const likes = 0;
+
+      const newQuestion = await Question.create({
+        question,
+        answer,
+        likes,
+      });
+      // console.log(newTour);
+      res.status(201).json({
+        status: 'success',
+        data: {
+          content: newQuestion,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 );
 
 //README.
