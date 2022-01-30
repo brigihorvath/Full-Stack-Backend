@@ -1,0 +1,85 @@
+<div class='profile-view'>
+  <div class='profile-header'>
+    {{#if user.name}}
+      <h1>Hello {{user.name}}</h1>
+    {{else}}
+      <h1> Hello Ironhacker!</h1>
+    {{/if}}
+  </div>
+  <main class='profile-container'>
+    <div class='profile-settings'>
+      <h2>Account Settings</h2>
+      <p>User role: {{user.role}}</p>
+      <form
+        action='/users/update/{{user._id}}'
+        id='username'
+        method='POST'
+        enctype='multipart/form-data'
+        class='edit-profile-form'
+      >
+        <div class='profile-form-group'>
+          <label for='username'>Username</label>
+          <input
+            type='text'
+            id='username'
+            name='name'
+            class='edit-profile-input'
+            value={{#if user.name}}{{user.name}}
+    {{else}}
+    'Ironhacker'
+    {{/if}}
+          />
+        </div>
+        <div class='profile-form-group'>
+          <label for='email'>Email</label>
+          <input
+            type='email'
+            id='email'
+            class='edit-profile-input'
+            name='email'
+            value={{user.email}}
+          />
+        </div>
+        <div class='profile-form-group profile-image'>
+          <img
+          class='user-profile-image'
+            src={{user.image}}
+            alt={{#if user.name}}{{user.name}}
+    {{else}}
+    'Ironhacker'
+    {{/if}} 
+          />
+          <input
+            type='file'
+            accept="image/*"
+            name='user-profile-image'
+            id='imageInput'
+            class='profile-image-input'
+          />
+          <label for='imageInput'>Choose a new image</label>
+        </div>
+        <button type='submit' class='profile-form-btn'>Save Changes</button>
+      </form>
+      {{#ifEquals user.role "admin"}}
+        <a class="create-btn" href="/tours/create">Create a Tour</a>
+      {{/ifEquals}}
+    {{#if err}}
+      <p class='signup-error'>{{err}}</p>
+    {{/if}}
+    </div>
+    <div class='profile-bookings'>
+      <h2>Your bookings</h2>
+      {{#each user.bookedTours}}
+        <a href='/tours/{{this._id}}' class='profile-bookings-link'>
+    <div class="profile-booked-tour-card {{this.name}}-color">
+        <h4 class="profile-booked-tour-heading">{{this.name}}</h4>
+        {{!-- <p>Description: {{this.description}}</p> --}}
+        <img src='{{this.image}}' alt='{{this.name}}' class="profile-booked-tour-image"/>
+        
+        {{!-- <p>Tour guide: {{this.tourGuide.name}}</p> --}}
+    </div>
+        </a>
+      {{/each}}
+    </div>
+  </main>
+</div>

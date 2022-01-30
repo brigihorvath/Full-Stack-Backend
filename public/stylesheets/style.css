@@ -1,0 +1,275 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font: 14px 'Open Sans', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f2f6f9;
+}
+
+/*
+  ======================================
+  Primary header 
+  ======================================
+*/
+
+.navbar-fixed {
+  background-color: #233044;
+  position: fixed;
+  min-width: 100%;
+  box-shadow: 5px 5px 15px rgba(34, 34, 34, 0.3);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  z-index: 5000;
+}
+
+.dropdown-button {
+  color: #fff;
+  font-size: 1.25rem;
+  align-self: center;
+}
+
+.dropdown-button:hover {
+  /* color: #33b3b7; */
+  /* color: #895968; */
+}
+
+.logo a {
+  font-family: 'Lobster Two', cursive;
+  color: #fff;
+}
+
+.logo a:hover {
+  /* color: #33b3b7; */
+  color: #895968;
+}
+
+.logo-img {
+  width: 40%;
+}
+
+.nav-flex {
+  /* background-color: #3f4144; */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem;
+}
+
+.primary-nav {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-list a {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+  transition: all 0.5s linear;
+  color: #fff;
+  padding-bottom: 0.3rem;
+}
+
+.nav-list a:hover {
+  /* border-bottom: 1px solid #33b3b7; */
+  border-bottom: 1px solid #fff;
+}
+
+.nav-list li {
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+/* Hidden menu - display by clicking dropdown-button */
+
+.dropdown-menu.hidden {
+  display: none;
+}
+
+.dropdown-menu ul {
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.dropdown-menu li {
+  -webkit-flex: 1 100%;
+  flex: 1 100%;
+}
+
+.dropdown-menu {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: fixed;
+  width: 100%;
+  z-index: 2000;
+  padding: 0 3em;
+  /* background-color: rgba(34, 34, 34, 0.9); */
+  background-color: rgb(242 246 249);
+  text-transform: uppercase;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  text-align: center;
+}
+
+.dropdown-menu li {
+  /* border-top: 1px solid rgb(255 255 255 / 37%); */
+  border-top: 1px solid rgb(22 41 69 / 16%);
+}
+
+.dropdown-menu li:first-child {
+  border-top: 0;
+}
+
+.dropdown-menu a {
+  font-family: 'Rubik', sans-serif;
+  /* color: #fff; */
+  color: #233044;
+  display: block;
+  padding: 1.2em 0;
+  transition: all 0.2s linear;
+}
+
+.dropdown-menu a:hover {
+  /* color: #33b3b7; */
+  /* color: #4b395e; */
+  /* background: rgb(75 57 94 / 24%); */
+  background-color: rgb(35 48 68 / 20%);
+}
+
+@media all and (min-width: 750px) {
+  /*Header*/
+  .dropdown-button {
+    display: none;
+  }
+  .primary-nav {
+    display: flex;
+  }
+}
+
+.main-profile-image {
+  width: 40px;
+  border-radius: 50%;
+}
+
+/*
+  ======================================
+  Profile
+  ======================================
+*/
+
+.profile-view {
+  padding-top: 100px;
+}
+
+
+/*
+  ==============================
+  Main footer
+  ==============================
+*/
+
+.main-footer {
+  background-color: #fdfdfd;
+  padding: 1em 3em;
+}
+  
+.margin-top-footer {
+  margin-top: 5em;
+}
+  
+.footer-nav a {
+  color: #adabab;
+}
+  
+.footer-header {
+  text-transform: uppercase;
+  padding-top: 10px;
+  color: #134c68;
+  font-weight: 400;
+}
+
+.main-footer {
+  font-family: 'Lato';
+  color: #808080;
+  font-size: .8rem;
+}
+.copyright {
+  font-size: .6rem;
+}

@@ -1,0 +1,226 @@
+.profile-view {
+  /* height: 100vh;
+  background: linear-gradient(
+      rgba(231, 220, 231, 0.5),
+      rgba(253, 253, 253, 0.9)
+    ),
+    url(../images/user-profile/profile-bg.jpg) no-repeat left top;
+  background-size: cover; */
+  font-family: 'Rubik', sans-serif;
+}
+
+.profile-view {
+  padding-top: 0;
+}
+
+.profile-header {
+  color: rgb(241, 238, 238);
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0 20px 0;
+  height: 35vh;
+  background: linear-gradient(rgba(70, 64, 70, 0.5), rgba(58, 53, 53, 0.9)),
+    url(../images/user-profile/profile-bg.jpg) no-repeat left top;
+  background-size: cover;
+  box-shadow: 5px 5px 15px rgba(77, 75, 75, 0.3);
+}
+
+@media screen and (max-width: 500px) {
+  .profile-header {
+    font-size: 25px;
+    height: 30vh;
+  }
+}
+
+.profile-container {
+  width: 1200px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.profile-container h2 {
+  color: rgb(44, 43, 44);
+}
+
+.profile-settings,
+.profile-bookings {
+  box-shadow: 5px 5px 15px rgba(177, 172, 172, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+.profile-settings {
+  width: 55%;
+}
+
+.profile-bookings {
+  width: 40%;
+}
+
+@media screen and (max-width: 900px) {
+  .profile-settings,
+  .profile-bookings {
+    width: 90%;
+  }
+}
+
+.edit-profile-form {
+  max-width: 100%;
+}
+
+.user-profile-image {
+  width: 70px;
+}
+
+.profile-image-input {
+  width: 0.1px;
+  height: 0.1px;
+}
+
+.profile-form-group {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-profile-input {
+  padding: 5px 10px;
+  max-width: 90%;
+  border: 0.5px solid rgb(219, 208, 208);
+  border-radius: 5px;
+}
+
+.profile-form-group.profile-image {
+  flex-direction: row;
+  align-items: center;
+}
+
+label {
+  font-weight: 500;
+  color: rgb(31, 26, 26);
+  padding: 2px 3px;
+}
+
+.profile-bookings-link {
+  display: block;
+  width: 98%;
+  height: 150px;
+}
+
+.profile-booked-tour-card {
+  width: 98%;
+  height: 150px;
+  position: relative;
+  color: rgb(243, 235, 235);
+  transition: all 0.2s ease-in-out;
+}
+
+.profile-booked-tour-heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  /* color: rgb(44, 42, 42); */
+  font-size: 30px;
+  text-shadow: -1px -1px 2px rgb(63, 60, 60);
+}
+
+.profile-booked-tour-image {
+  object-fit: cover;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  /* height: 100%; */
+}
+
+.profile-booked-tour-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(120deg, #f1f1ec, #e6eef0);
+  opacity: 0.3;
+  z-index: 998;
+}
+
+.Cadiz-color::after {
+  background-image: linear-gradient(120deg, #e57ee9, #7dd5f0);
+}
+
+.Oporto-color::after {
+  background-image: linear-gradient(120deg, #819de9, #f88ccb);
+}
+
+.Budapest-color::after {
+  background-image: linear-gradient(120deg, #e7c8a0, #ecf5cd);
+}
+
+.Berlin-color::after {
+  background-image: linear-gradient(120deg, #a3d2f1, #94d8ec);
+}
+
+.Barcelona-color::after {
+  background-image: linear-gradient(120deg, #ecb886, #c2c06b);
+}
+
+.Paris-color::after {
+  background-image: linear-gradient(120deg, #e844ee, #33d0ff);
+}
+
+.Leipzig-color::after {
+  background-image: linear-gradient(120deg, #56c75c, #33d0ff);
+}
+
+.Philadelphia-color::after {
+  background-image: linear-gradient(120deg, #ee4444, #e06dc7);
+}
+
+.Mieras-color::after {
+  background-image: linear-gradient(120deg, #5a9dca, #352864);
+}
+
+.Aarhus-color::after {
+  background-image: linear-gradient(120deg, #e844ee, #33d0ff);
+}
+
+.profile-booked-tour-card:hover {
+  color: white;
+  transform: scale(1.01);
+}
+.profile-booked-tour-card:hover:after {
+  color: white;
+  transform: scale(1.01);
+  background-image: linear-gradient(120deg, #4a454b, #4d5253);
+  color: white;
+}
+
+
+.create-btn {
+  padding: 8px 20px;
+  color: #281929;
+  background-color: #fff;
+  border-radius: 30px;
+  border: 1px solid #281929;
+  margin-top: 10px;
+  font-size: .9rem;
+}
+
+.create-btn:hover {
+  background-color: #281929;
+  color: #fff;
+  border: 1px solid #fff;
+}

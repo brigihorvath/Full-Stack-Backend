@@ -1,0 +1,68 @@
+{{! views/tour-views/tour-update.hbs }}
+<div class='create-tour-view'>
+  <div class='create-tour-container'>
+    <img src='/images/logo.png' alt='Ironhack-logo' class='create-tour-logo' />
+
+    <form
+      action='/tours/{{tour._id}}/edit'
+      method='post'
+      enctype='multipart/form-data'
+      class='create-tour-form'
+    >
+      {{! <label>Name: }}
+      <input
+        type='text'
+        name='name'
+        class='create-tour-input'
+        value='{{tour.name}}'
+        
+      />
+      {{! </label> }}
+      {{! <label>Description: }}
+      <textarea name='description' class='create-tour-input' rows='10' >
+        {{tour.description}}</textarea>
+      {{! </label> }}
+      <input
+        type='text'
+        name='lat'
+        placeholder='Latitud'
+        class='create-tour-input'
+        value='{{tour.mapData.coordinates.[1]}}'
+        required
+      />
+      <input
+        type='text'
+        name='long'
+        placeholder='Longitud'
+        class='create-tour-input'
+        value='{{tour.mapData.coordinates.[0]}}'
+        required
+      />
+      <select
+        name='tourGuide'
+        id='tour-guide'
+        class='create-tour-input'
+        multiple
+      >
+        <option
+          selected
+          value={{tour.tourGuide._id}}
+        >{{tour.tourGuide.name}}</option>
+        {{#each guides}}
+          {{!All the tour guides from the Model "User" and collection: users }}
+          <option
+            value='{{this._id}}'
+          >{{this.name}}</option>{{!From the collection--> celebrities }}
+        {{/each}}
+      </select>
+
+      {{! <label>Image: }}
+      <input type='file' name='tour-cover-image' class='create-tour-image' />
+      {{! </label> }}
+      <button type='submit' class='create-tour-btn'>Update</button>
+    </form>
+    {{#if err}}
+      <p class='signup-error'>{{err}}</p>
+    {{/if}}
+  </div>
+</div>

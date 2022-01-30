@@ -1,0 +1,65 @@
+{{! views/tour-views/tour-create.hbs }}
+<div class='create-tour-view'>
+  <div class='create-tour-container'>
+    <img src='/images/logo.png' alt='Ironhack-logo' class='create-tour-logo' />
+    <form
+      action='/tours/create'
+      method='post'
+      enctype='multipart/form-data'
+      class='create-tour-form'
+    >
+      {{! <label>Name: }}
+      <input
+        type='text'
+        name='name'
+        placeholder='Tour Name'
+        class='create-tour-input'
+      />
+      {{! </label> }}
+      {{! <label>Description: }}
+      <textarea
+        name='description'
+        class='create-tour-input'
+        placeholder='Tour Description'
+      > </textarea>
+      {{! </label> }}
+      <input
+        type='text'
+        name='lat'
+        placeholder='Latitud'
+        class='create-tour-input'
+        required
+      />
+      <input
+        type='text'
+        name='long'
+        placeholder='Longitud'
+        class='create-tour-input'
+        required
+      />
+      <select
+        name='tourGuide'
+        id='tour-guide'
+        placeholder='Tour Guide'
+        class='create-tour-input'
+        multiple
+      >
+        <option selected value=''></option>
+        {{#each guides}}
+          {{!All the tour guides from the Model "User" and collection: users }}
+          <option
+            value='{{this._id}}'
+          >{{this.name}}</option>{{!From the collection--> celebrities }}
+        {{/each}}
+      </select>
+
+      {{! <label>Image: }}
+      <input type='file' name='tour-cover-image' class='create-tour-image' />
+      {{! </label> }}
+      <button type='submit' class='create-tour-btn'>Create</button>
+    </form>
+    {{#if err}}
+      <p class='signup-error'>{{err}}</p>
+    {{/if}}
+  </div>
+</div>

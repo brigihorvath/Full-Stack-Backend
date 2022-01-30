@@ -1,0 +1,112 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta
+      name='description'
+      content='Irontours - an Ironhack Module 2 project'
+    />
+    <meta name='title' property='og:title' content='Irontours' />
+    <meta property='og:type' content='Website' />
+    <meta
+      name='image'
+      property='og:image'
+      content='https://irontours2.herokuapp.com/images/irontours.png'
+    />
+    <meta
+      name='description'
+      property='og:description'
+      content='Irontuors application'
+    /><meta name='author' content='Brigi Horvath and Karla Jaramillo' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;700&family=Lobster&family=Lobster+Two:wght@400;700&family=Pacifico&family=Rubik:wght@300;400;500;600;700&display=swap'
+      rel='stylesheet'
+    />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@100;300;400;700&display=swap'
+      rel='stylesheet'
+    />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&display=swap'
+      rel='stylesheet'
+    />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/loginStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/mainStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/profileStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/tourDetailsStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/mapStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/weatherStyle.css' />
+    <title>IronTours</title>
+    <script
+      src='https://use.fontawesome.com/releases/v5.15.4/js/all.js'
+      data-auto-replace-svg='nest'
+    ></script>
+    {{! mapbox }}
+    <script
+      src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'
+    ></script>
+    <link
+      href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css'
+      rel='stylesheet'
+    />
+  </head>
+  <body>
+    <header>
+      <section class='navbar-fixed'>
+        <div class='nav-flex'>
+          <div class='logo'>
+            <a href='/'><img
+                class='logo-img'
+                src='/images/logo.png'
+                alt=''
+              /></a>
+          </div>
+          <a href='#' class='dropdown-button'>
+            <i class='fas fa-bars'></i>
+          </a>
+          <nav class='primary-nav'>
+            <ul class='nav-list'>
+              <li><a href='/'>Home</a></li>
+              {{#if isLoggedIn}}
+                {{! <li><a href='/profile'>Profile</a></li> }}
+                <li><a href='/logout'>Log Out</a></li>
+                <li><a href='/profile'><img
+                      src={{userImage}}
+                      alt='profile image'
+                      class='main-profile-image'
+                    /></a></li>
+              {{else}}
+                <li><a href='/login'>Login</a></li>
+                <li><a href='/signup'>Signup</a></li>
+              {{/if}}
+              {{! <li><a href="/logout">Logout</a></li> }}
+            </ul>
+          </nav>
+        </div>
+        <div class='dropdown-menu hidden'>
+          <ul>
+            <li><a href='/'>Home</a></li>
+            {{#if isLoggedIn}}
+              <li><a href='/profile'>Profile</a></li>
+              <li><a href='/logout'>Log Out</a></li>
+            {{else}}
+              <li><a href='/login'>Login</a></li>
+              <li><a href='/signup'>Signup</a></li>
+            {{/if}}
+
+            {{! <li><a href="/logout">Logout</a></li> }}
+          </ul>
+        </div>
+      </section>
+    </header>
+    <div class='padding-top-nav'></div>
+    {{! nav }}
+    {{{body}}}
+  </body>
+  <script src='/javascripts/script.js'></script>
+  {{! <script src='/javascripts/mapbox.js'></script> }}
+</html>

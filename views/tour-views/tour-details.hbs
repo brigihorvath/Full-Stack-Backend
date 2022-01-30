@@ -1,0 +1,64 @@
+{{! views/tour-details.hbs }}
+<div class='wrapper-tour-details'>
+  <div class='wrapper-tour-image'>
+    <div class="wrapper-weather">
+      <p class="weather-day">{{dayName}}</p>
+      <p class="weather-date">{{date}}</p>
+      <p class="weather-temp">{{weather.temp}}ºC</p>
+      <div class="wrapper-weather-icon">
+        <img class="weather-icon" src="{{weather.icon}}" alt="{{weather.desc}}">
+      </div>
+      <p class="weather-desc">{{weather.desc}}</p>
+    </div>
+    <img src='{{tour.image}}' alt='' />
+    <div class='name-city-tour-details'>
+      <div class="city-buttons"><h2>{{tour.name}}</h2>
+      {{#if isAdmin}}
+        <div class="buttons-admin-wrapper">
+          <a class="update-tour-admin-btn" href='/tours/{{tour._id}}/edit'>Update Tour</a>
+          <a class="delete-tour-admin-btn" href='/tours/{{tour._id}}/delete'> Delete Tour</a>
+          <a class="location-tour-admin-btn" href='/tours/{{tour._id}}/addLocations'> + Locations</a>
+
+        </div>
+      {{/if}}
+      </div>
+
+      {{#if isLoggedIn}}
+        {{#if isBooked}}
+          <div class="delete-booking-wrapper"><a
+              class='delete-tour-btn'
+              href='/tours/{{tour._id}}/deleteBooking'
+            >Delete  <br/> Booking</a></div>
+        {{else}}
+          <div class="wrapper-book-tour-btn"><a class='book-tour-btn' href='/tours/{{tour._id}}/book'>+ Book</a></div>
+        {{/if}}
+      {{else}}
+        <div class="wrapper-loginToBook-btn"><a class='loginToBook-tour-btn' href='/login'>+ Log In to Book</a></div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class='description-tour-details'>
+    <p>{{tour.description}}</p>
+  </div>
+  <div class='map-wrapper' data-locations='{{json tour}}'><div
+    id='map'
+  ></div></div>
+
+
+  <ul>
+    <li>
+      {{!-- <img src={{userImage}} alt='profile image' class='main-profile-image'/> --}}
+      <img
+        src={{tour.tourGuide.image}}
+        alt='profile image'
+        class='main-profile-image'
+      />
+    </li>
+    <li class='tour-guide-details'>{{tour.tourGuide.name}}<span>
+        • Tour guide</span></li>
+  </ul>
+
+</div>
+
+<script src='/javascripts/mapbox-details.js'></script>
