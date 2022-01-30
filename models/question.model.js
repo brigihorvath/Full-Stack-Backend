@@ -21,4 +21,4 @@ const QuestionSchema = new Schema({
   },
 });
 
-module.exports = model('Question', TourSchema);
+module.exports = model('Question', QuestionSchema);

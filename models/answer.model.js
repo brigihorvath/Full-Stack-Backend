@@ -19,4 +19,4 @@ const AnswerSchema = new Schema({
   },
 });
 
-module.exports = model('Answer', TourSchema);
+module.exports = model('Answer', AnswerSchema);
