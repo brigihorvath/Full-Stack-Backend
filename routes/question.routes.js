@@ -16,11 +16,13 @@ router.post(
       const question = req.body.content;
       const answer = '';
       const likes = 0;
+      const category = 'JavaScript';
 
       const newQuestion = await Question.create({
         question,
         answer,
         likes,
+        category,
       });
       // console.log(newTour);
       res.status(201).json({
@@ -36,7 +38,8 @@ router.post(
 );
 
 //README.
-router.get('/questions/create', (req, res) => {
-  console.log(req);
+router.get('/questions', async (req, res) => {
+  const allQuestions = await Question.find();
+  res.status(200).json(allQuestions);
 });
 module.exports = router;

@@ -15,6 +15,20 @@ const QuestionSchema = new Schema({
     type: Number,
     default: 0,
   },
+  category: {
+    type: String,
+    enum: [
+      'Basic',
+      'OOP',
+      'Closures',
+      'DOM',
+      'Arrays',
+      'Strings',
+      'Promises',
+      'JavaScript',
+    ],
+    default: 'JavaScript',
+  },
 });
 
 module.exports = model('Question', QuestionSchema);
